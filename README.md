@@ -1,4 +1,4 @@
-# Import "randomuser" JSON data from AP source or local file
+# Import "randomuser" JSON data from online source or local file
 <a href="#"><img src="https://www.python.org/static/img/python-logo.png" width="100"></img></a>
 <a href="#"><img src="https://webimages.mongodb.com/_com_assets/cms/kusb9stg1ndrp7j53-MongoDBLogoBrand1.png" width="100"></img></a>
 

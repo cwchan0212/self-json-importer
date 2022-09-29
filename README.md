@@ -16,7 +16,7 @@ In order to import a JSON in MongoDB, the user needs to first to load the JSON f
 4. Import JSON data line by line
 
 ## Step 1: Installation of MongoClient and Requests (for online source)
-Installation: MongoClient and requests 
+Installation: MongoClient and Requests 
 
 ```sh
 pip install pymongo

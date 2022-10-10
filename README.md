@@ -84,7 +84,7 @@ for i in range(len(user)):
 
 ## Compplete Code
 
-I. Connect to the MongoDB Server on the Local Machine
+I. Connect to the MongoDB Server on the Local Machine (json-import_local.py)
 
 ```sh
 def main():
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     main()
 ```
 
-II. connect to MongoDB Atlas
+II. Connect to MongoDB Atlas (json-import_remote.py)
 ```sh
 def main():
 
@@ -165,5 +165,8 @@ if __name__ == "__main__":
 
 ## Command
 ```sh
-python json-import.py
+# Connect to the MongoDB Server on the Local Machine
+python json-import_local.py
+# Connect to MongoDB Atlas
+python json-import_remote.py
 ```

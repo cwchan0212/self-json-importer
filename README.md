@@ -22,41 +22,53 @@ Installation: **MongoClient** and **Requests**
 pip install pymongo
 pip install requests
 ```
+
 If the user attempts to use **mongo+srv** protocol, **pymongo-srv** should be installed as follow:
+
 ```sh
 pip install pymongo[srv]  # for connecting to MongoDB Atlas
 ```
 
 ## Step 2: Fetch data from an online source or local JSON file
 Option 1: Fetch JSON data from API URL. let's use randomuser.me as an example, e.g. request 100 results
-```sh
+
+```py
 url = "https://randomuser.me/api/?results=100"
 response = requests.get(url)
 user = response.json()
+
 ```
+
 Select the JSON objects 
-```sh
+
+```py
 user = user["results"] 
 ```
+
 Option 2: Fetch JSON data from the local file
-```sh
+
+```py
 path = "C:/Temp/data10.json"
 f = open(path, "r", encoding="utf-8")
 user = json.load(f)["results"]
 ```
+
 ## Step 3: Connect to the MongoDB Server on the Local Machine or MongoDB Atlas
 Create an instance of MongoClient to connect to the MongoDB Server on the **Local Machine**. If the host "**localhost**" cannot be connected, please use "**127.0.0.1**".
 
-```sh
+```py
 url = "mongodb://localhost:27017/"
 ```
+
 Create an instance of MongoClient to connect **MongoDB Atlas**.
-```sh
+
+```py
 url = "mongodb+srv://<username>:<password>@<mongoserver>/testdb?retryWrites=true&w=majority"
 ```
 
 Connect to the MongoDB server with the try-catch command.
-```
+
+```py
 client = MongoClient(url)
 try:
     print(client.server_info())                 # Print server info
@@ -65,17 +77,21 @@ except Exception:
 ```
 
 Select database.
-```sh
+
+```py
 db = client["testdb"]
 ```
 
 select collection.
-```sh
+
+```py
 duser = db["users"]
 ```
+
 ## Step 4: Import JSON data line by line
 Insert each line of user objects, print **ObjectId** _id.
-```sh
+
+```py
 for i in range(len(user)):
     u = user[i]
     id = duser.insert_one(u).inserted_id
@@ -86,7 +102,7 @@ for i in range(len(user)):
 
 I. Connect to the MongoDB Server on the Local Machine (json-import_local.py)
 
-```sh
+```py
 def main():
 
     import json, requests
@@ -123,7 +139,8 @@ if __name__ == "__main__":
 ```
 
 II. Connect to MongoDB Atlas (json-import_remote.py)
-```sh
+
+```py
 def main():
 
     import json, requests
